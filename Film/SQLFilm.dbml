@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SQLFILM" Class="SQLFilmDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FELISSILVESTRIS\SQLEXPRESS;Initial Catalog=SQLFILM;Persist Security Info=True;User ID=sa" SettingsObjectName="Film.Properties.Settings" SettingsPropertyName="SQLFILMConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ThongTinCaNhan" Member="ThongTinCaNhans">
+    <Type Name="ThongTinCaNhan">
+      <Column Name="TenDangNhap" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CMND" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SDT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ImageByte" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="QuanLyNhanSu_ThongTinCaNhan" Member="QuanLyNhanSu" ThisKey="TenDangNhap" OtherKey="TenDangNhap" Type="QuanLyNhanSu" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuanLyNhanSu" Member="QuanLyNhanSus">
+    <Type Name="QuanLyNhanSu">
+      <Column Name="TenDangNhap" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PhanQuyen" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="QuanLyNhanSu_ThongTinCaNhan" Member="ThongTinCaNhan" ThisKey="TenDangNhap" OtherKey="TenDangNhap" Type="ThongTinCaNhan" Cardinality="One" />
+    </Type>
+  </Table>
+</Database>

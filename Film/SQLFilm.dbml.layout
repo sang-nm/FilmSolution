@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SQLFilm">
+  <DataContextMoniker Name="/SQLFilmDataContext" />
+  <nestedChildShapes>
+    <classShape Id="99d5f38d-8b9d-4e19-a94f-7a98269a7fcf" absoluteBounds="1.375, 0.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/SQLFilmDataContext/ThongTinCaNhan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e71beb3-b62a-4c00-a97c-db094c3e10cd" absoluteBounds="1.3899999999999997, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa576153-fad9-469c-b74b-69b0b6aefb77" absoluteBounds="4.25, 1.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SQLFilmDataContext/QuanLyNhanSu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="549c515c-2486-4335-87a4-d83bb5be994e" absoluteBounds="4.265, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 1.91429768880208); (3.375 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLFilmDataContext/QuanLyNhanSu/QuanLyNhanSu_ThongTinCaNhan" />
+      <nodes>
+        <classShapeMoniker Id="fa576153-fad9-469c-b74b-69b0b6aefb77" />
+        <classShapeMoniker Id="99d5f38d-8b9d-4e19-a94f-7a98269a7fcf" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
