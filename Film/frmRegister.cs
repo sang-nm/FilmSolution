@@ -17,6 +17,8 @@ namespace Film
         public frmRegister()
         {
             InitializeComponent();
+            txtMK.UseSystemPasswordChar = true;
+            txtMK2.UseSystemPasswordChar = true;
         }
 
         private bool validate()
@@ -63,7 +65,7 @@ namespace Film
                 txtEmail.Focus();
                 return false;
             }
-            else if (ClassImage.fileImage == null || ClassImage.fileImage == "" || pictureBoxRegister.Image == Film.Properties.Resources.initial)
+            else if (pictureBoxRegister.Image == null)
             {
                 errorReg.SetError(pictureBoxRegister, "Error");
                 sstReg.Text = "Nhập hình";
@@ -110,14 +112,13 @@ namespace Film
                 errorReg.SetError((Control)item, "");
             }
             sstReg.Text = "";
-            validate();
             if (!validate())
             {
                 return;
             }
             else
             {
-                string SQLComm = "SELECT * FROM QuanLyNhanSu";
+                string SQLComm = "SELECT * FROM TbQuanLyNhanSu";
                 string[] DTReg = DataAccess.ExeReader(SQLComm, txtTDN.Text, 0);
                 if (txtTDN.Text == DTReg[0])
                 {
@@ -128,7 +129,7 @@ namespace Film
                 }
                 else
                 {
-                    DataAccess.NonQuery(string.Format("INSERT QuanLyNhanSu VALUES(N'{0}',N'{1}','User','Blocked')", txtTDN.Text, txtMK.Text));
+                    DataAccess.NonQuery(string.Format("INSERT TbQuanLyNhanSu VALUES(N'{0}',N'{1}','User','Blocked')", txtTDN.Text, txtMK.Text));
                     string ImageIN = string.Format("INSERT ThongTinCaNhan VALUES(N'{0}',N'{1}',N'{2}',N'{3}',{4},{5},'{6}',@ImageB)", txtTDN.Text, txtTen.Text, dateNgaySinh.Value, txtDiachi.Text, Convert.ToInt32(txtCMND.Text), Convert.ToInt32(txtDT.Text), txtEmail.Text);
                     ClassImage.ImageIN(ImageIN);
                     MessageBox.Show("Đăng ký thành công", "Thông Báo");
@@ -141,18 +142,14 @@ namespace Film
         {
             this.Close();
         }
-       
+
         private void pictureBoxRegister_Click(object sender, EventArgs e)
         {
             ClassImage.browse();
-            if (pictureBoxRegister.Image != null)
+            if (ClassImage.fileImage != "")
             {
+                pictureBoxRegister.BackgroundImage = null;
                 pictureBoxRegister.Load(ClassImage.fileImage);
-            }
-            else
-            {
-                MessageBox.Show("Please browse for an image file");
-                return;
             }
         }
 
@@ -170,39 +167,24 @@ namespace Film
                 }
                 if (item is PictureBox)
                 {
-                    ((PictureBox)item).Image = Film.Properties.Resources.initial;
+                    ((PictureBox)item).Image = null;
+                    ((PictureBox)item).BackgroundImage = Properties.Resources.initial;
                 }
             }
         }
 
-        private void frmRegister_Load(object sender, EventArgs e)
+        private void button_showPass_Click(object sender, EventArgs e)
         {
-
+            if (txtMK.UseSystemPasswordChar == true)
+            {
+                txtMK.UseSystemPasswordChar = false;
+                txtMK2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtMK.UseSystemPasswordChar = true;
+                txtMK2.UseSystemPasswordChar = true;
+            }
         }
-        //public void dangnhap()
-        //{
-        //    string sql = "select * from NhanVien";
-        //    string[] arr = DataAccess.Exreader(sql, txtID.Text, 2);
-        //    if (arr[2] == txtID.Text)
-        //    {
-        //        if (arr[3] == txtmatkhau.Text)
-        //        {
-        //            MessageBox.Show("thanh cong");
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("tai khoan mat khau khong dung");
-        //            txtID.Text = "";
-        //            txtmatkhau.Text = "";
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("tai khoan mat khau khong dung");
-        //        txtID.Text = "";
-        //        txtmatkhau.Text = "";
-        //    }
-
-        //}
     }
 }

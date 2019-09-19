@@ -172,9 +172,11 @@
             // pictureBox_Prof
             // 
             this.pictureBox_Prof.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pictureBox_Prof.BackgroundImage = global::Film.Properties.Resources.initial;
+            this.pictureBox_Prof.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox_Prof.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox_Prof.Location = new System.Drawing.Point(613, 25);
-            this.pictureBox_Prof.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.pictureBox_Prof.Margin = new System.Windows.Forms.Padding(12);
             this.pictureBox_Prof.Name = "pictureBox_Prof";
             this.pictureBox_Prof.Size = new System.Drawing.Size(267, 269);
             this.pictureBox_Prof.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

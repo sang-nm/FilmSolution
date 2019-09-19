@@ -26,22 +26,11 @@ namespace Film.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FELISSILVESTRIS\\SQLEXPRESS;Initial Catalog=SQLFILM;User ID=sa;Passwor" +
-            "d=123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FELISSILVESTRIS\\SQLEXPRESS;Initial Catalog=SQLFILM;Persist Security I" +
+            "nfo=True;User ID=sa;Password=123456")]
         public string SQLFILMConnectionString {
             get {
                 return ((string)(this["SQLFILMConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FELISSILVESTRIS\\SQLEXPRESS;Initial Catalog=SQLFILM;Persist Security I" +
-            "nfo=True;User ID=sa")]
-        public string SQLFILMConnectionString1 {
-            get {
-                return ((string)(this["SQLFILMConnectionString1"]));
             }
         }
     }

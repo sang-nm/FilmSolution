@@ -53,7 +53,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtMK2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_showPass = new System.Windows.Forms.Button();
             this.pictureBoxRegister = new System.Windows.Forms.PictureBox();
             this.statusStripReg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorReg)).BeginInit();
@@ -82,7 +82,7 @@
             this.btnCcel.Location = new System.Drawing.Point(406, 409);
             this.btnCcel.Name = "btnCcel";
             this.btnCcel.Size = new System.Drawing.Size(106, 30);
-            this.btnCcel.TabIndex = 7;
+            this.btnCcel.TabIndex = 10;
             this.btnCcel.Text = "Thoát";
             this.btnCcel.UseVisualStyleBackColor = true;
             this.btnCcel.Click += new System.EventHandler(this.btnCcel_Click);
@@ -92,7 +92,7 @@
             this.btnReg.Location = new System.Drawing.Point(218, 409);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(106, 30);
-            this.btnReg.TabIndex = 6;
+            this.btnReg.TabIndex = 9;
             this.btnReg.Text = "Đăng ký";
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
@@ -206,7 +206,7 @@
             this.txtTDN.Location = new System.Drawing.Point(318, 296);
             this.txtTDN.Name = "txtTDN";
             this.txtTDN.Size = new System.Drawing.Size(219, 22);
-            this.txtTDN.TabIndex = 21;
+            this.txtTDN.TabIndex = 6;
             // 
             // label2
             // 
@@ -223,7 +223,7 @@
             this.txtMK.Location = new System.Drawing.Point(318, 333);
             this.txtMK.Name = "txtMK";
             this.txtMK.Size = new System.Drawing.Size(219, 22);
-            this.txtMK.TabIndex = 23;
+            this.txtMK.TabIndex = 7;
             // 
             // label4
             // 
@@ -240,7 +240,7 @@
             this.txtMK2.Location = new System.Drawing.Point(318, 370);
             this.txtMK2.Name = "txtMK2";
             this.txtMK2.Size = new System.Drawing.Size(219, 22);
-            this.txtMK2.TabIndex = 25;
+            this.txtMK2.TabIndex = 8;
             // 
             // label5
             // 
@@ -252,26 +252,28 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "Xác nhận mật khẩu";
             // 
-            // button1
+            // button_showPass
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(543, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 27;
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_showPass.BackColor = System.Drawing.SystemColors.Control;
+            this.button_showPass.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_showPass.BackgroundImage")));
+            this.button_showPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_showPass.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.button_showPass.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.button_showPass.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.button_showPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_showPass.Location = new System.Drawing.Point(543, 351);
+            this.button_showPass.Name = "button_showPass";
+            this.button_showPass.Size = new System.Drawing.Size(23, 23);
+            this.button_showPass.TabIndex = 27;
+            this.button_showPass.UseVisualStyleBackColor = false;
+            this.button_showPass.Click += new System.EventHandler(this.button_showPass_Click);
             // 
             // pictureBoxRegister
             // 
             this.pictureBoxRegister.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pictureBoxRegister.BackgroundImage = global::Film.Properties.Resources.initial;
+            this.pictureBoxRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxRegister.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxRegister.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRegister.Image")));
             this.pictureBoxRegister.Location = new System.Drawing.Point(459, 29);
             this.pictureBoxRegister.Name = "pictureBoxRegister";
             this.pictureBoxRegister.Size = new System.Drawing.Size(250, 250);
@@ -287,7 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCcel;
             this.ClientSize = new System.Drawing.Size(730, 464);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_showPass);
             this.Controls.Add(this.txtMK2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMK);
@@ -314,8 +316,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng ký";
-            this.Load += new System.EventHandler(this.frmRegister_Load);
             this.statusStripReg.ResumeLayout(false);
             this.statusStripReg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorReg)).EndInit();
@@ -351,6 +353,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTDN;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_showPass;
     }
 }

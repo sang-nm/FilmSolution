@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=12.7.0.10, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\..\MetroFramework.dll</HintPath>
     </Reference>
@@ -56,21 +60,97 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassImage.cs" />
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="DataSetFILM.cs">
-      <DependentUpon>DataSetFILM.xsd</DependentUpon>
+    <Compile Include="Class\pnlChangePassword.cs">
+      <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Class\pnlChangePassword.Designer.cs">
+      <DependentUpon>pnlChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlMemberReg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlMemberReg.Designer.cs">
+      <DependentUpon>pnlMemberReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlBooking.Designer.cs">
+      <DependentUpon>pnlBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlMemberManagerment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlMemberManagerment.Designer.cs">
+      <DependentUpon>pnlMemberManagerment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlTicketBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlTicketBooking.Designer.cs">
+      <DependentUpon>pnlTicketBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ClassImage.cs" />
+    <Compile Include="Class\pnlAddMovie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlAddMovie.Designer.cs">
+      <DependentUpon>pnlAddMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlLooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlLooking.Designer.cs">
+      <DependentUpon>pnlLooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlMenuAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlMenuAdmin.Designer.cs">
+      <DependentUpon>pnlMenuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlLoginScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlLoginScreen.Designer.cs">
+      <DependentUpon>pnlLoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlMovieManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlMovieManagement.Designer.cs">
+      <DependentUpon>pnlMovieManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlShowtimesManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlShowtimesManagement.Designer.cs">
+      <DependentUpon>pnlShowtimesManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlUserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlUserManagement.Designer.cs">
+      <DependentUpon>pnlUserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\DataAccess.cs" />
+    <Compile Include="Class\pnlCoupon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlCoupon.Designer.cs">
+      <DependentUpon>pnlCoupon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\pnlTrailer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Class\pnlTrailer.Designer.cs">
+      <DependentUpon>pnlTrailer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\UCslide.cs" />
     <Compile Include="DataSetFILM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetFILM.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -90,12 +170,6 @@
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lichchieuphim.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lichchieuphim.Designer.cs">
-      <DependentUpon>Lichchieuphim.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,25 +178,57 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="quanlyfilm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="quanlyfilm.Designer.cs">
-      <DependentUpon>quanlyfilm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUserManagerment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUserManagerment.Designer.cs">
-      <DependentUpon>frmUserManagerment.cs</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SQLFilm.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SQLFilm.dbml</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Class\pnlBooking.resx">
+      <DependentUpon>pnlBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlChangePassword.resx">
+      <DependentUpon>pnlChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlMemberManagerment.resx">
+      <DependentUpon>pnlMemberManagerment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlMemberReg.resx">
+      <DependentUpon>pnlMemberReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlTicketBooking.resx">
+      <DependentUpon>pnlTicketBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlAddMovie.resx">
+      <DependentUpon>pnlAddMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlLoginScreen.resx">
+      <DependentUpon>pnlLoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlLooking.resx">
+      <DependentUpon>pnlLooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlMenuAdmin.resx">
+      <DependentUpon>pnlMenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlMovieManagement.resx">
+      <DependentUpon>pnlMovieManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlShowtimesManagement.resx">
+      <DependentUpon>pnlShowtimesManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlUserManagement.resx">
+      <DependentUpon>pnlUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlCoupon.resx">
+      <DependentUpon>pnlCoupon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Class\pnlTrailer.resx">
+      <DependentUpon>pnlTrailer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -133,28 +239,15 @@
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lichchieuphim.resx">
-      <DependentUpon>Lichchieuphim.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="quanlyfilm.resx">
-      <DependentUpon>quanlyfilm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUserManagerment.resx">
-      <DependentUpon>frmUserManagerment.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="SQLFilm.dbml.layout">
       <DependentUpon>SQLFilm.dbml</DependentUpon>
     </None>
@@ -188,13 +281,100 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cinema-chair VIP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.chevron.left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.chevron.right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_4AQttvq3cR0r0MOvVQHKtnt0IKce5TK9.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.people.multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cinema-chair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.coupon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.people.down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.ticket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar-eye %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar-eye-hide %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\upload_image.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <None Include="Resources\appbar.arrow.right.png" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <None Include="Resources\appbar.arrow.left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar-arrow-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar-arrow-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar-control-play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.moon.new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.calendar.31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.movie.clapper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.social.github.octocat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.3d.x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appbar.close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -33,9 +33,27 @@ namespace Film
     partial void InsertThongTinCaNhan(ThongTinCaNhan instance);
     partial void UpdateThongTinCaNhan(ThongTinCaNhan instance);
     partial void DeleteThongTinCaNhan(ThongTinCaNhan instance);
-    partial void InsertQuanLyNhanSu(QuanLyNhanSu instance);
-    partial void UpdateQuanLyNhanSu(QuanLyNhanSu instance);
-    partial void DeleteQuanLyNhanSu(QuanLyNhanSu instance);
+    partial void InsertTbQuanLyNhanSu(TbQuanLyNhanSu instance);
+    partial void UpdateTbQuanLyNhanSu(TbQuanLyNhanSu instance);
+    partial void DeleteTbQuanLyNhanSu(TbQuanLyNhanSu instance);
+    partial void InsertTbPhim(TbPhim instance);
+    partial void UpdateTbPhim(TbPhim instance);
+    partial void DeleteTbPhim(TbPhim instance);
+    partial void InsertTbQuanLyLichChieu(TbQuanLyLichChieu instance);
+    partial void UpdateTbQuanLyLichChieu(TbQuanLyLichChieu instance);
+    partial void DeleteTbQuanLyLichChieu(TbQuanLyLichChieu instance);
+    partial void InsertTbRoom(TbRoom instance);
+    partial void UpdateTbRoom(TbRoom instance);
+    partial void DeleteTbRoom(TbRoom instance);
+    partial void InsertTbCoupon(TbCoupon instance);
+    partial void UpdateTbCoupon(TbCoupon instance);
+    partial void DeleteTbCoupon(TbCoupon instance);
+    partial void InsertTbMember(TbMember instance);
+    partial void UpdateTbMember(TbMember instance);
+    partial void DeleteTbMember(TbMember instance);
+    partial void InsertTbBanVe(TbBanVe instance);
+    partial void UpdateTbBanVe(TbBanVe instance);
+    partial void DeleteTbBanVe(TbBanVe instance);
     #endregion
 		
 		public SQLFilmDataContext() : 
@@ -76,11 +94,59 @@ namespace Film
 			}
 		}
 		
-		public System.Data.Linq.Table<QuanLyNhanSu> QuanLyNhanSus
+		public System.Data.Linq.Table<TbQuanLyNhanSu> TbQuanLyNhanSus
 		{
 			get
 			{
-				return this.GetTable<QuanLyNhanSu>();
+				return this.GetTable<TbQuanLyNhanSu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbPhim> TbPhims
+		{
+			get
+			{
+				return this.GetTable<TbPhim>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbQuanLyLichChieu> TbQuanLyLichChieus
+		{
+			get
+			{
+				return this.GetTable<TbQuanLyLichChieu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbRoom> TbRooms
+		{
+			get
+			{
+				return this.GetTable<TbRoom>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbCoupon> TbCoupons
+		{
+			get
+			{
+				return this.GetTable<TbCoupon>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbMember> TbMembers
+		{
+			get
+			{
+				return this.GetTable<TbMember>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbBanVe> TbBanVes
+		{
+			get
+			{
+				return this.GetTable<TbBanVe>();
 			}
 		}
 	}
@@ -107,7 +173,9 @@ namespace Film
 		
 		private System.Data.Linq.Binary _ImageByte;
 		
-		private EntityRef<QuanLyNhanSu> _QuanLyNhanSu;
+		private EntitySet<TbBanVe> _TbBanVes;
+		
+		private EntityRef<TbQuanLyNhanSu> _TbQuanLyNhanSu;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -133,7 +201,8 @@ namespace Film
 		
 		public ThongTinCaNhan()
 		{
-			this._QuanLyNhanSu = default(EntityRef<QuanLyNhanSu>);
+			this._TbBanVes = new EntitySet<TbBanVe>(new Action<TbBanVe>(this.attach_TbBanVes), new Action<TbBanVe>(this.detach_TbBanVes));
+			this._TbQuanLyNhanSu = default(EntityRef<TbQuanLyNhanSu>);
 			OnCreated();
 		}
 		
@@ -148,7 +217,7 @@ namespace Film
 			{
 				if ((this._TenDangNhap != value))
 				{
-					if (this._QuanLyNhanSu.HasLoadedOrAssignedValue)
+					if (this._TbQuanLyNhanSu.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -301,26 +370,39 @@ namespace Film
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QuanLyNhanSu_ThongTinCaNhan", Storage="_QuanLyNhanSu", ThisKey="TenDangNhap", OtherKey="TenDangNhap", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public QuanLyNhanSu QuanLyNhanSu
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThongTinCaNhan_TbBanVe", Storage="_TbBanVes", ThisKey="TenDangNhap", OtherKey="TenDangNhap")]
+		public EntitySet<TbBanVe> TbBanVes
 		{
 			get
 			{
-				return this._QuanLyNhanSu.Entity;
+				return this._TbBanVes;
 			}
 			set
 			{
-				QuanLyNhanSu previousValue = this._QuanLyNhanSu.Entity;
+				this._TbBanVes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbQuanLyNhanSu_ThongTinCaNhan", Storage="_TbQuanLyNhanSu", ThisKey="TenDangNhap", OtherKey="TenDangNhap", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public TbQuanLyNhanSu TbQuanLyNhanSu
+		{
+			get
+			{
+				return this._TbQuanLyNhanSu.Entity;
+			}
+			set
+			{
+				TbQuanLyNhanSu previousValue = this._TbQuanLyNhanSu.Entity;
 				if (((previousValue != value) 
-							|| (this._QuanLyNhanSu.HasLoadedOrAssignedValue == false)))
+							|| (this._TbQuanLyNhanSu.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._QuanLyNhanSu.Entity = null;
+						this._TbQuanLyNhanSu.Entity = null;
 						previousValue.ThongTinCaNhan = null;
 					}
-					this._QuanLyNhanSu.Entity = value;
+					this._TbQuanLyNhanSu.Entity = value;
 					if ((value != null))
 					{
 						value.ThongTinCaNhan = this;
@@ -330,7 +412,7 @@ namespace Film
 					{
 						this._TenDangNhap = default(string);
 					}
-					this.SendPropertyChanged("QuanLyNhanSu");
+					this.SendPropertyChanged("TbQuanLyNhanSu");
 				}
 			}
 		}
@@ -354,10 +436,22 @@ namespace Film
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_TbBanVes(TbBanVe entity)
+		{
+			this.SendPropertyChanging();
+			entity.ThongTinCaNhan = this;
+		}
+		
+		private void detach_TbBanVes(TbBanVe entity)
+		{
+			this.SendPropertyChanging();
+			entity.ThongTinCaNhan = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QuanLyNhanSu")]
-	public partial class QuanLyNhanSu : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbQuanLyNhanSu")]
+	public partial class TbQuanLyNhanSu : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -386,7 +480,7 @@ namespace Film
     partial void OnTrangThaiChanged();
     #endregion
 		
-		public QuanLyNhanSu()
+		public TbQuanLyNhanSu()
 		{
 			this._ThongTinCaNhan = default(EntityRef<ThongTinCaNhan>);
 			OnCreated();
@@ -472,7 +566,7 @@ namespace Film
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QuanLyNhanSu_ThongTinCaNhan", Storage="_ThongTinCaNhan", ThisKey="TenDangNhap", OtherKey="TenDangNhap", IsUnique=true, IsForeignKey=false)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbQuanLyNhanSu_ThongTinCaNhan", Storage="_ThongTinCaNhan", ThisKey="TenDangNhap", OtherKey="TenDangNhap", IsUnique=true, IsForeignKey=false)]
 		public ThongTinCaNhan ThongTinCaNhan
 		{
 			get
@@ -489,12 +583,1370 @@ namespace Film
 					if ((previousValue != null))
 					{
 						this._ThongTinCaNhan.Entity = null;
-						previousValue.QuanLyNhanSu = null;
+						previousValue.TbQuanLyNhanSu = null;
 					}
 					this._ThongTinCaNhan.Entity = value;
 					if ((value != null))
 					{
-						value.QuanLyNhanSu = this;
+						value.TbQuanLyNhanSu = this;
+					}
+					this.SendPropertyChanged("ThongTinCaNhan");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbPhim")]
+	public partial class TbPhim : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaPhim;
+		
+		private string _TenPhim;
+		
+		private string _TheLoai;
+		
+		private string _DaoDien;
+		
+		private string _DienVien;
+		
+		private System.DateTime _NgayKhoiChieu;
+		
+		private string _MoTaPhim;
+		
+		private System.Data.Linq.Binary _ImgPhim;
+		
+		private EntitySet<TbQuanLyLichChieu> _TbQuanLyLichChieus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaPhimChanging(int value);
+    partial void OnMaPhimChanged();
+    partial void OnTenPhimChanging(string value);
+    partial void OnTenPhimChanged();
+    partial void OnTheLoaiChanging(string value);
+    partial void OnTheLoaiChanged();
+    partial void OnDaoDienChanging(string value);
+    partial void OnDaoDienChanged();
+    partial void OnDienVienChanging(string value);
+    partial void OnDienVienChanged();
+    partial void OnNgayKhoiChieuChanging(System.DateTime value);
+    partial void OnNgayKhoiChieuChanged();
+    partial void OnMoTaPhimChanging(string value);
+    partial void OnMoTaPhimChanged();
+    partial void OnImgPhimChanging(System.Data.Linq.Binary value);
+    partial void OnImgPhimChanged();
+    #endregion
+		
+		public TbPhim()
+		{
+			this._TbQuanLyLichChieus = new EntitySet<TbQuanLyLichChieu>(new Action<TbQuanLyLichChieu>(this.attach_TbQuanLyLichChieus), new Action<TbQuanLyLichChieu>(this.detach_TbQuanLyLichChieus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhim", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaPhim
+		{
+			get
+			{
+				return this._MaPhim;
+			}
+			set
+			{
+				if ((this._MaPhim != value))
+				{
+					this.OnMaPhimChanging(value);
+					this.SendPropertyChanging();
+					this._MaPhim = value;
+					this.SendPropertyChanged("MaPhim");
+					this.OnMaPhimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenPhim", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string TenPhim
+		{
+			get
+			{
+				return this._TenPhim;
+			}
+			set
+			{
+				if ((this._TenPhim != value))
+				{
+					this.OnTenPhimChanging(value);
+					this.SendPropertyChanging();
+					this._TenPhim = value;
+					this.SendPropertyChanged("TenPhim");
+					this.OnTenPhimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TheLoai", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string TheLoai
+		{
+			get
+			{
+				return this._TheLoai;
+			}
+			set
+			{
+				if ((this._TheLoai != value))
+				{
+					this.OnTheLoaiChanging(value);
+					this.SendPropertyChanging();
+					this._TheLoai = value;
+					this.SendPropertyChanged("TheLoai");
+					this.OnTheLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DaoDien", DbType="NVarChar(MAX)")]
+		public string DaoDien
+		{
+			get
+			{
+				return this._DaoDien;
+			}
+			set
+			{
+				if ((this._DaoDien != value))
+				{
+					this.OnDaoDienChanging(value);
+					this.SendPropertyChanging();
+					this._DaoDien = value;
+					this.SendPropertyChanged("DaoDien");
+					this.OnDaoDienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienVien", DbType="NVarChar(MAX)")]
+		public string DienVien
+		{
+			get
+			{
+				return this._DienVien;
+			}
+			set
+			{
+				if ((this._DienVien != value))
+				{
+					this.OnDienVienChanging(value);
+					this.SendPropertyChanging();
+					this._DienVien = value;
+					this.SendPropertyChanged("DienVien");
+					this.OnDienVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayKhoiChieu", DbType="Date NOT NULL")]
+		public System.DateTime NgayKhoiChieu
+		{
+			get
+			{
+				return this._NgayKhoiChieu;
+			}
+			set
+			{
+				if ((this._NgayKhoiChieu != value))
+				{
+					this.OnNgayKhoiChieuChanging(value);
+					this.SendPropertyChanging();
+					this._NgayKhoiChieu = value;
+					this.SendPropertyChanged("NgayKhoiChieu");
+					this.OnNgayKhoiChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoTaPhim", DbType="NVarChar(MAX)")]
+		public string MoTaPhim
+		{
+			get
+			{
+				return this._MoTaPhim;
+			}
+			set
+			{
+				if ((this._MoTaPhim != value))
+				{
+					this.OnMoTaPhimChanging(value);
+					this.SendPropertyChanging();
+					this._MoTaPhim = value;
+					this.SendPropertyChanged("MoTaPhim");
+					this.OnMoTaPhimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgPhim", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary ImgPhim
+		{
+			get
+			{
+				return this._ImgPhim;
+			}
+			set
+			{
+				if ((this._ImgPhim != value))
+				{
+					this.OnImgPhimChanging(value);
+					this.SendPropertyChanging();
+					this._ImgPhim = value;
+					this.SendPropertyChanged("ImgPhim");
+					this.OnImgPhimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbPhim_TbQuanLyLichChieu", Storage="_TbQuanLyLichChieus", ThisKey="MaPhim", OtherKey="MaPhim")]
+		public EntitySet<TbQuanLyLichChieu> TbQuanLyLichChieus
+		{
+			get
+			{
+				return this._TbQuanLyLichChieus;
+			}
+			set
+			{
+				this._TbQuanLyLichChieus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TbQuanLyLichChieus(TbQuanLyLichChieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbPhim = this;
+		}
+		
+		private void detach_TbQuanLyLichChieus(TbQuanLyLichChieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbPhim = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbQuanLyLichChieu")]
+	public partial class TbQuanLyLichChieu : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaLichChieu;
+		
+		private int _MaPhim;
+		
+		private System.DateTime _NgayChieu;
+		
+		private string _PhongChieu;
+		
+		private string _SuatChieu;
+		
+		private EntitySet<TbBanVe> _TbBanVes;
+		
+		private EntityRef<TbPhim> _TbPhim;
+		
+		private EntityRef<TbRoom> _TbRoom;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaLichChieuChanging(int value);
+    partial void OnMaLichChieuChanged();
+    partial void OnMaPhimChanging(int value);
+    partial void OnMaPhimChanged();
+    partial void OnNgayChieuChanging(System.DateTime value);
+    partial void OnNgayChieuChanged();
+    partial void OnPhongChieuChanging(string value);
+    partial void OnPhongChieuChanged();
+    partial void OnSuatChieuChanging(string value);
+    partial void OnSuatChieuChanged();
+    #endregion
+		
+		public TbQuanLyLichChieu()
+		{
+			this._TbBanVes = new EntitySet<TbBanVe>(new Action<TbBanVe>(this.attach_TbBanVes), new Action<TbBanVe>(this.detach_TbBanVes));
+			this._TbPhim = default(EntityRef<TbPhim>);
+			this._TbRoom = default(EntityRef<TbRoom>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLichChieu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaLichChieu
+		{
+			get
+			{
+				return this._MaLichChieu;
+			}
+			set
+			{
+				if ((this._MaLichChieu != value))
+				{
+					this.OnMaLichChieuChanging(value);
+					this.SendPropertyChanging();
+					this._MaLichChieu = value;
+					this.SendPropertyChanged("MaLichChieu");
+					this.OnMaLichChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhim", DbType="Int NOT NULL")]
+		public int MaPhim
+		{
+			get
+			{
+				return this._MaPhim;
+			}
+			set
+			{
+				if ((this._MaPhim != value))
+				{
+					if (this._TbPhim.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaPhimChanging(value);
+					this.SendPropertyChanging();
+					this._MaPhim = value;
+					this.SendPropertyChanged("MaPhim");
+					this.OnMaPhimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayChieu", DbType="Date NOT NULL")]
+		public System.DateTime NgayChieu
+		{
+			get
+			{
+				return this._NgayChieu;
+			}
+			set
+			{
+				if ((this._NgayChieu != value))
+				{
+					this.OnNgayChieuChanging(value);
+					this.SendPropertyChanging();
+					this._NgayChieu = value;
+					this.SendPropertyChanged("NgayChieu");
+					this.OnNgayChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhongChieu", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string PhongChieu
+		{
+			get
+			{
+				return this._PhongChieu;
+			}
+			set
+			{
+				if ((this._PhongChieu != value))
+				{
+					if (this._TbRoom.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPhongChieuChanging(value);
+					this.SendPropertyChanging();
+					this._PhongChieu = value;
+					this.SendPropertyChanged("PhongChieu");
+					this.OnPhongChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SuatChieu", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string SuatChieu
+		{
+			get
+			{
+				return this._SuatChieu;
+			}
+			set
+			{
+				if ((this._SuatChieu != value))
+				{
+					this.OnSuatChieuChanging(value);
+					this.SendPropertyChanging();
+					this._SuatChieu = value;
+					this.SendPropertyChanged("SuatChieu");
+					this.OnSuatChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbQuanLyLichChieu_TbBanVe", Storage="_TbBanVes", ThisKey="MaLichChieu", OtherKey="MaLichChieu")]
+		public EntitySet<TbBanVe> TbBanVes
+		{
+			get
+			{
+				return this._TbBanVes;
+			}
+			set
+			{
+				this._TbBanVes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbPhim_TbQuanLyLichChieu", Storage="_TbPhim", ThisKey="MaPhim", OtherKey="MaPhim", IsForeignKey=true)]
+		public TbPhim TbPhim
+		{
+			get
+			{
+				return this._TbPhim.Entity;
+			}
+			set
+			{
+				TbPhim previousValue = this._TbPhim.Entity;
+				if (((previousValue != value) 
+							|| (this._TbPhim.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TbPhim.Entity = null;
+						previousValue.TbQuanLyLichChieus.Remove(this);
+					}
+					this._TbPhim.Entity = value;
+					if ((value != null))
+					{
+						value.TbQuanLyLichChieus.Add(this);
+						this._MaPhim = value.MaPhim;
+					}
+					else
+					{
+						this._MaPhim = default(int);
+					}
+					this.SendPropertyChanged("TbPhim");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbRoom_TbQuanLyLichChieu", Storage="_TbRoom", ThisKey="PhongChieu", OtherKey="PhongChieu", IsForeignKey=true)]
+		public TbRoom TbRoom
+		{
+			get
+			{
+				return this._TbRoom.Entity;
+			}
+			set
+			{
+				TbRoom previousValue = this._TbRoom.Entity;
+				if (((previousValue != value) 
+							|| (this._TbRoom.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TbRoom.Entity = null;
+						previousValue.TbQuanLyLichChieus.Remove(this);
+					}
+					this._TbRoom.Entity = value;
+					if ((value != null))
+					{
+						value.TbQuanLyLichChieus.Add(this);
+						this._PhongChieu = value.PhongChieu;
+					}
+					else
+					{
+						this._PhongChieu = default(string);
+					}
+					this.SendPropertyChanged("TbRoom");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TbBanVes(TbBanVe entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbQuanLyLichChieu = this;
+		}
+		
+		private void detach_TbBanVes(TbBanVe entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbQuanLyLichChieu = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbRoom")]
+	public partial class TbRoom : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _PhongChieu;
+		
+		private string _SuatChieu;
+		
+		private EntitySet<TbQuanLyLichChieu> _TbQuanLyLichChieus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPhongChieuChanging(string value);
+    partial void OnPhongChieuChanged();
+    partial void OnSuatChieuChanging(string value);
+    partial void OnSuatChieuChanged();
+    #endregion
+		
+		public TbRoom()
+		{
+			this._TbQuanLyLichChieus = new EntitySet<TbQuanLyLichChieu>(new Action<TbQuanLyLichChieu>(this.attach_TbQuanLyLichChieus), new Action<TbQuanLyLichChieu>(this.detach_TbQuanLyLichChieus));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhongChieu", DbType="Char(2) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string PhongChieu
+		{
+			get
+			{
+				return this._PhongChieu;
+			}
+			set
+			{
+				if ((this._PhongChieu != value))
+				{
+					this.OnPhongChieuChanging(value);
+					this.SendPropertyChanging();
+					this._PhongChieu = value;
+					this.SendPropertyChanged("PhongChieu");
+					this.OnPhongChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SuatChieu", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string SuatChieu
+		{
+			get
+			{
+				return this._SuatChieu;
+			}
+			set
+			{
+				if ((this._SuatChieu != value))
+				{
+					this.OnSuatChieuChanging(value);
+					this.SendPropertyChanging();
+					this._SuatChieu = value;
+					this.SendPropertyChanged("SuatChieu");
+					this.OnSuatChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbRoom_TbQuanLyLichChieu", Storage="_TbQuanLyLichChieus", ThisKey="PhongChieu", OtherKey="PhongChieu")]
+		public EntitySet<TbQuanLyLichChieu> TbQuanLyLichChieus
+		{
+			get
+			{
+				return this._TbQuanLyLichChieus;
+			}
+			set
+			{
+				this._TbQuanLyLichChieus.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TbQuanLyLichChieus(TbQuanLyLichChieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbRoom = this;
+		}
+		
+		private void detach_TbQuanLyLichChieus(TbQuanLyLichChieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbRoom = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbCoupon")]
+	public partial class TbCoupon : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaCoupon;
+		
+		private System.Nullable<decimal> _Member;
+		
+		private System.Nullable<decimal> _Voucher;
+		
+		private EntitySet<TbMember> _TbMembers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaCouponChanging(string value);
+    partial void OnMaCouponChanged();
+    partial void OnMemberChanging(System.Nullable<decimal> value);
+    partial void OnMemberChanged();
+    partial void OnVoucherChanging(System.Nullable<decimal> value);
+    partial void OnVoucherChanged();
+    #endregion
+		
+		public TbCoupon()
+		{
+			this._TbMembers = new EntitySet<TbMember>(new Action<TbMember>(this.attach_TbMembers), new Action<TbMember>(this.detach_TbMembers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCoupon", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaCoupon
+		{
+			get
+			{
+				return this._MaCoupon;
+			}
+			set
+			{
+				if ((this._MaCoupon != value))
+				{
+					this.OnMaCouponChanging(value);
+					this.SendPropertyChanging();
+					this._MaCoupon = value;
+					this.SendPropertyChanged("MaCoupon");
+					this.OnMaCouponChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Member", DbType="Money")]
+		public System.Nullable<decimal> Member
+		{
+			get
+			{
+				return this._Member;
+			}
+			set
+			{
+				if ((this._Member != value))
+				{
+					this.OnMemberChanging(value);
+					this.SendPropertyChanging();
+					this._Member = value;
+					this.SendPropertyChanged("Member");
+					this.OnMemberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Voucher", DbType="Money")]
+		public System.Nullable<decimal> Voucher
+		{
+			get
+			{
+				return this._Voucher;
+			}
+			set
+			{
+				if ((this._Voucher != value))
+				{
+					this.OnVoucherChanging(value);
+					this.SendPropertyChanging();
+					this._Voucher = value;
+					this.SendPropertyChanged("Voucher");
+					this.OnVoucherChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbCoupon_TbMember", Storage="_TbMembers", ThisKey="MaCoupon", OtherKey="MaCoupon")]
+		public EntitySet<TbMember> TbMembers
+		{
+			get
+			{
+				return this._TbMembers;
+			}
+			set
+			{
+				this._TbMembers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TbMembers(TbMember entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbCoupon = this;
+		}
+		
+		private void detach_TbMembers(TbMember entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbCoupon = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbMember")]
+	public partial class TbMember : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaThanhVien;
+		
+		private string _HoTen;
+		
+		private System.Nullable<System.DateTime> _NgaySinh;
+		
+		private int _CMND;
+		
+		private System.Nullable<int> _SDT;
+		
+		private string _MaCoupon;
+		
+		private EntitySet<TbBanVe> _TbBanVes;
+		
+		private EntityRef<TbCoupon> _TbCoupon;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaThanhVienChanging(int value);
+    partial void OnMaThanhVienChanged();
+    partial void OnHoTenChanging(string value);
+    partial void OnHoTenChanged();
+    partial void OnNgaySinhChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgaySinhChanged();
+    partial void OnCMNDChanging(int value);
+    partial void OnCMNDChanged();
+    partial void OnSDTChanging(System.Nullable<int> value);
+    partial void OnSDTChanged();
+    partial void OnMaCouponChanging(string value);
+    partial void OnMaCouponChanged();
+    #endregion
+		
+		public TbMember()
+		{
+			this._TbBanVes = new EntitySet<TbBanVe>(new Action<TbBanVe>(this.attach_TbBanVes), new Action<TbBanVe>(this.detach_TbBanVes));
+			this._TbCoupon = default(EntityRef<TbCoupon>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThanhVien", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaThanhVien
+		{
+			get
+			{
+				return this._MaThanhVien;
+			}
+			set
+			{
+				if ((this._MaThanhVien != value))
+				{
+					this.OnMaThanhVienChanging(value);
+					this.SendPropertyChanging();
+					this._MaThanhVien = value;
+					this.SendPropertyChanged("MaThanhVien");
+					this.OnMaThanhVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoTen", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string HoTen
+		{
+			get
+			{
+				return this._HoTen;
+			}
+			set
+			{
+				if ((this._HoTen != value))
+				{
+					this.OnHoTenChanging(value);
+					this.SendPropertyChanging();
+					this._HoTen = value;
+					this.SendPropertyChanged("HoTen");
+					this.OnHoTenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="Date")]
+		public System.Nullable<System.DateTime> NgaySinh
+		{
+			get
+			{
+				return this._NgaySinh;
+			}
+			set
+			{
+				if ((this._NgaySinh != value))
+				{
+					this.OnNgaySinhChanging(value);
+					this.SendPropertyChanging();
+					this._NgaySinh = value;
+					this.SendPropertyChanged("NgaySinh");
+					this.OnNgaySinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="Int NOT NULL")]
+		public int CMND
+		{
+			get
+			{
+				return this._CMND;
+			}
+			set
+			{
+				if ((this._CMND != value))
+				{
+					this.OnCMNDChanging(value);
+					this.SendPropertyChanging();
+					this._CMND = value;
+					this.SendPropertyChanged("CMND");
+					this.OnCMNDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="Int")]
+		public System.Nullable<int> SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this.OnSDTChanging(value);
+					this.SendPropertyChanging();
+					this._SDT = value;
+					this.SendPropertyChanged("SDT");
+					this.OnSDTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCoupon", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string MaCoupon
+		{
+			get
+			{
+				return this._MaCoupon;
+			}
+			set
+			{
+				if ((this._MaCoupon != value))
+				{
+					if (this._TbCoupon.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaCouponChanging(value);
+					this.SendPropertyChanging();
+					this._MaCoupon = value;
+					this.SendPropertyChanged("MaCoupon");
+					this.OnMaCouponChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbMember_TbBanVe", Storage="_TbBanVes", ThisKey="MaThanhVien", OtherKey="MaThanhVien")]
+		public EntitySet<TbBanVe> TbBanVes
+		{
+			get
+			{
+				return this._TbBanVes;
+			}
+			set
+			{
+				this._TbBanVes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbCoupon_TbMember", Storage="_TbCoupon", ThisKey="MaCoupon", OtherKey="MaCoupon", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public TbCoupon TbCoupon
+		{
+			get
+			{
+				return this._TbCoupon.Entity;
+			}
+			set
+			{
+				TbCoupon previousValue = this._TbCoupon.Entity;
+				if (((previousValue != value) 
+							|| (this._TbCoupon.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TbCoupon.Entity = null;
+						previousValue.TbMembers.Remove(this);
+					}
+					this._TbCoupon.Entity = value;
+					if ((value != null))
+					{
+						value.TbMembers.Add(this);
+						this._MaCoupon = value.MaCoupon;
+					}
+					else
+					{
+						this._MaCoupon = default(string);
+					}
+					this.SendPropertyChanged("TbCoupon");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TbBanVes(TbBanVe entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbMember = this;
+		}
+		
+		private void detach_TbBanVes(TbBanVe entity)
+		{
+			this.SendPropertyChanging();
+			entity.TbMember = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbBanVe")]
+	public partial class TbBanVe : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaVe;
+		
+		private int _MaLichChieu;
+		
+		private string _TenDangNhap;
+		
+		private string _Ghe;
+		
+		private decimal _GiaVe;
+		
+		private System.Nullable<int> _MaThanhVien;
+		
+		private System.Nullable<decimal> _Discount;
+		
+		private EntityRef<TbQuanLyLichChieu> _TbQuanLyLichChieu;
+		
+		private EntityRef<TbMember> _TbMember;
+		
+		private EntityRef<ThongTinCaNhan> _ThongTinCaNhan;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaVeChanging(string value);
+    partial void OnMaVeChanged();
+    partial void OnMaLichChieuChanging(int value);
+    partial void OnMaLichChieuChanged();
+    partial void OnTenDangNhapChanging(string value);
+    partial void OnTenDangNhapChanged();
+    partial void OnGheChanging(string value);
+    partial void OnGheChanged();
+    partial void OnGiaVeChanging(decimal value);
+    partial void OnGiaVeChanged();
+    partial void OnMaThanhVienChanging(System.Nullable<int> value);
+    partial void OnMaThanhVienChanged();
+    partial void OnDiscountChanging(System.Nullable<decimal> value);
+    partial void OnDiscountChanged();
+    #endregion
+		
+		public TbBanVe()
+		{
+			this._TbQuanLyLichChieu = default(EntityRef<TbQuanLyLichChieu>);
+			this._TbMember = default(EntityRef<TbMember>);
+			this._ThongTinCaNhan = default(EntityRef<ThongTinCaNhan>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVe", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaVe
+		{
+			get
+			{
+				return this._MaVe;
+			}
+			set
+			{
+				if ((this._MaVe != value))
+				{
+					this.OnMaVeChanging(value);
+					this.SendPropertyChanging();
+					this._MaVe = value;
+					this.SendPropertyChanged("MaVe");
+					this.OnMaVeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLichChieu", DbType="Int NOT NULL")]
+		public int MaLichChieu
+		{
+			get
+			{
+				return this._MaLichChieu;
+			}
+			set
+			{
+				if ((this._MaLichChieu != value))
+				{
+					if (this._TbQuanLyLichChieu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaLichChieuChanging(value);
+					this.SendPropertyChanging();
+					this._MaLichChieu = value;
+					this.SendPropertyChanged("MaLichChieu");
+					this.OnMaLichChieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDangNhap", DbType="NVarChar(30)")]
+		public string TenDangNhap
+		{
+			get
+			{
+				return this._TenDangNhap;
+			}
+			set
+			{
+				if ((this._TenDangNhap != value))
+				{
+					if (this._ThongTinCaNhan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTenDangNhapChanging(value);
+					this.SendPropertyChanging();
+					this._TenDangNhap = value;
+					this.SendPropertyChanged("TenDangNhap");
+					this.OnTenDangNhapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ghe", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Ghe
+		{
+			get
+			{
+				return this._Ghe;
+			}
+			set
+			{
+				if ((this._Ghe != value))
+				{
+					this.OnGheChanging(value);
+					this.SendPropertyChanging();
+					this._Ghe = value;
+					this.SendPropertyChanged("Ghe");
+					this.OnGheChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaVe", DbType="Money NOT NULL")]
+		public decimal GiaVe
+		{
+			get
+			{
+				return this._GiaVe;
+			}
+			set
+			{
+				if ((this._GiaVe != value))
+				{
+					this.OnGiaVeChanging(value);
+					this.SendPropertyChanging();
+					this._GiaVe = value;
+					this.SendPropertyChanged("GiaVe");
+					this.OnGiaVeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThanhVien", DbType="Int")]
+		public System.Nullable<int> MaThanhVien
+		{
+			get
+			{
+				return this._MaThanhVien;
+			}
+			set
+			{
+				if ((this._MaThanhVien != value))
+				{
+					if (this._TbMember.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaThanhVienChanging(value);
+					this.SendPropertyChanging();
+					this._MaThanhVien = value;
+					this.SendPropertyChanged("MaThanhVien");
+					this.OnMaThanhVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Discount", DbType="Money")]
+		public System.Nullable<decimal> Discount
+		{
+			get
+			{
+				return this._Discount;
+			}
+			set
+			{
+				if ((this._Discount != value))
+				{
+					this.OnDiscountChanging(value);
+					this.SendPropertyChanging();
+					this._Discount = value;
+					this.SendPropertyChanged("Discount");
+					this.OnDiscountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbQuanLyLichChieu_TbBanVe", Storage="_TbQuanLyLichChieu", ThisKey="MaLichChieu", OtherKey="MaLichChieu", IsForeignKey=true)]
+		public TbQuanLyLichChieu TbQuanLyLichChieu
+		{
+			get
+			{
+				return this._TbQuanLyLichChieu.Entity;
+			}
+			set
+			{
+				TbQuanLyLichChieu previousValue = this._TbQuanLyLichChieu.Entity;
+				if (((previousValue != value) 
+							|| (this._TbQuanLyLichChieu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TbQuanLyLichChieu.Entity = null;
+						previousValue.TbBanVes.Remove(this);
+					}
+					this._TbQuanLyLichChieu.Entity = value;
+					if ((value != null))
+					{
+						value.TbBanVes.Add(this);
+						this._MaLichChieu = value.MaLichChieu;
+					}
+					else
+					{
+						this._MaLichChieu = default(int);
+					}
+					this.SendPropertyChanged("TbQuanLyLichChieu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TbMember_TbBanVe", Storage="_TbMember", ThisKey="MaThanhVien", OtherKey="MaThanhVien", IsForeignKey=true)]
+		public TbMember TbMember
+		{
+			get
+			{
+				return this._TbMember.Entity;
+			}
+			set
+			{
+				TbMember previousValue = this._TbMember.Entity;
+				if (((previousValue != value) 
+							|| (this._TbMember.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TbMember.Entity = null;
+						previousValue.TbBanVes.Remove(this);
+					}
+					this._TbMember.Entity = value;
+					if ((value != null))
+					{
+						value.TbBanVes.Add(this);
+						this._MaThanhVien = value.MaThanhVien;
+					}
+					else
+					{
+						this._MaThanhVien = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TbMember");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThongTinCaNhan_TbBanVe", Storage="_ThongTinCaNhan", ThisKey="TenDangNhap", OtherKey="TenDangNhap", IsForeignKey=true)]
+		public ThongTinCaNhan ThongTinCaNhan
+		{
+			get
+			{
+				return this._ThongTinCaNhan.Entity;
+			}
+			set
+			{
+				ThongTinCaNhan previousValue = this._ThongTinCaNhan.Entity;
+				if (((previousValue != value) 
+							|| (this._ThongTinCaNhan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ThongTinCaNhan.Entity = null;
+						previousValue.TbBanVes.Remove(this);
+					}
+					this._ThongTinCaNhan.Entity = value;
+					if ((value != null))
+					{
+						value.TbBanVes.Add(this);
+						this._TenDangNhap = value.TenDangNhap;
+					}
+					else
+					{
+						this._TenDangNhap = default(string);
 					}
 					this.SendPropertyChanged("ThongTinCaNhan");
 				}

@@ -79,7 +79,8 @@ namespace Film
                     if (j == 4 ^ j == 9)
                     {
                         var margin = button.Margin;
-                        margin.Left = 30;
+                        margin.Left = 20;
+                        margin.Right = 20;
                         button.Margin = margin;
                     }
                     button.Text = lb.Text + (j + 1).ToString();

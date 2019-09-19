@@ -1,24 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SQLFilm">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 8.5" name="SQLFilm">
   <DataContextMoniker Name="/SQLFilmDataContext" />
   <nestedChildShapes>
-    <classShape Id="99d5f38d-8b9d-4e19-a94f-7a98269a7fcf" absoluteBounds="1.375, 0.625, 2, 2.3478011067708335">
+    <classShape Id="99d5f38d-8b9d-4e19-a94f-7a98269a7fcf" absoluteBounds="3.5, 1, 2, 2.3478011067708335">
       <DataClassMoniker Name="/SQLFilmDataContext/ThongTinCaNhan" />
       <nestedChildShapes>
-        <elementListCompartment Id="0e71beb3-b62a-4c00-a97c-db094c3e10cd" absoluteBounds="1.3899999999999997, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0e71beb3-b62a-4c00-a97c-db094c3e10cd" absoluteBounds="3.5149999999999997, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fa576153-fad9-469c-b74b-69b0b6aefb77" absoluteBounds="4.25, 1.125, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/SQLFilmDataContext/QuanLyNhanSu" />
+    <classShape Id="20b846fc-3dad-4de6-be32-039fda685bd0" absoluteBounds="0.75, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbQuanLyNhanSu" />
       <nestedChildShapes>
-        <elementListCompartment Id="549c515c-2486-4335-87a4-d83bb5be994e" absoluteBounds="4.265, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="126f7438-818f-43da-84d1-5d0c10256476" absoluteBounds="0.76500000000000057, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.25 : 1.91429768880208); (3.375 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/SQLFilmDataContext/QuanLyNhanSu/QuanLyNhanSu_ThongTinCaNhan" />
+    <associationConnector edgePoints="[(2.75 : 1.78929768880208); (3.5 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLFilmDataContext/TbQuanLyNhanSu/TbQuanLyNhanSu_ThongTinCaNhan" />
       <nodes>
-        <classShapeMoniker Id="fa576153-fad9-469c-b74b-69b0b6aefb77" />
+        <classShapeMoniker Id="20b846fc-3dad-4de6-be32-039fda685bd0" />
         <classShapeMoniker Id="99d5f38d-8b9d-4e19-a94f-7a98269a7fcf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d3b5867d-a977-4b82-b86a-004e7495b935" absoluteBounds="0.875, 3.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbPhim" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0ce456f-958f-4a3e-94fb-e99a27992d63" absoluteBounds="0.88999999999999968, 3.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a43ae16b-5719-4d5a-b5aa-f3f68dd68054" absoluteBounds="6.25, 4.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbQuanLyLichChieu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b323491c-87c3-4fdd-bc83-419bb78ab57c" absoluteBounds="6.265, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 4.53125); (6.25 : 4.53125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLFilmDataContext/TbPhim/TbPhim_TbQuanLyLichChieu" />
+      <nodes>
+        <classShapeMoniker Id="d3b5867d-a977-4b82-b86a-004e7495b935" />
+        <classShapeMoniker Id="a43ae16b-5719-4d5a-b5aa-f3f68dd68054" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="33ce1566-8780-4b73-a8f4-89b0321957e7" absoluteBounds="3.5, 4.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbRoom" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d52871f-b607-4a28-9037-c4e0089eb41a" absoluteBounds="3.5150000000000006, 5.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 5.44794840494792); (6.25 : 5.44794840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLFilmDataContext/TbRoom/TbRoom_TbQuanLyLichChieu" />
+      <nodes>
+        <classShapeMoniker Id="33ce1566-8780-4b73-a8f4-89b0321957e7" />
+        <classShapeMoniker Id="a43ae16b-5719-4d5a-b5aa-f3f68dd68054" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1a76a316-6c66-4d1a-94e6-35f6410a107c" absoluteBounds="6.25, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbCoupon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="15dbafef-f0bd-46fc-a848-16adb7f9ed6f" absoluteBounds="6.2650000000000006, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa16ae3c-0f8f-4cc8-a317-1add5e9f2298" absoluteBounds="9.5, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ee695c0-c536-44f4-8ddb-178ec5d61102" absoluteBounds="9.515, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 1.81814697265625); (9.5 : 1.81814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SQLFilmDataContext/TbCoupon/TbCoupon_TbMember" />
+      <nodes>
+        <classShapeMoniker Id="1a76a316-6c66-4d1a-94e6-35f6410a107c" />
+        <classShapeMoniker Id="fa16ae3c-0f8f-4cc8-a317-1add5e9f2298" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e2e8b180-ac0b-4823-8ad2-3a0be6a35b79" absoluteBounds="9.375, 3.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/SQLFilmDataContext/TbBanVe" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85139530-1001-4ca7-bd0e-5193ef24a6c7" absoluteBounds="9.39, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 5.01524983723958); (9.375 : 5.01524983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLFilmDataContext/TbQuanLyLichChieu/TbQuanLyLichChieu_TbBanVe" />
+      <nodes>
+        <classShapeMoniker Id="a43ae16b-5719-4d5a-b5aa-f3f68dd68054" />
+        <classShapeMoniker Id="e2e8b180-ac0b-4823-8ad2-3a0be6a35b79" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.4375 : 2.7131982421875); (10.4375 : 3.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLFilmDataContext/TbMember/TbMember_TbBanVe" />
+      <nodes>
+        <classShapeMoniker Id="fa16ae3c-0f8f-4cc8-a317-1add5e9f2298" />
+        <classShapeMoniker Id="e2e8b180-ac0b-4823-8ad2-3a0be6a35b79" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.06174967447917); (9.40625 : 3.06174967447917); (9.40625 : 3.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SQLFilmDataContext/ThongTinCaNhan/ThongTinCaNhan_TbBanVe" />
+      <nodes>
+        <classShapeMoniker Id="99d5f38d-8b9d-4e19-a94f-7a98269a7fcf" />
+        <classShapeMoniker Id="e2e8b180-ac0b-4823-8ad2-3a0be6a35b79" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

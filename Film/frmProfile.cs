@@ -45,8 +45,9 @@ namespace Film
         }
         private void frmProfile_Load(object sender, EventArgs e)
         {
-            thongtincanhan = filmDC.GetTable<ThongTinCaNhan>();
+            pictureBox_Prof.BackgroundImage = null;
 
+            thongtincanhan = filmDC.GetTable<ThongTinCaNhan>();
 
             txtHoTen.Text = hoten;
             dateNgaySinh.Value = ngaysinh;
@@ -54,6 +55,7 @@ namespace Film
             txtCMND.Text = cmnd.ToString();
             txtDT.Text = sdt.ToString();
             txtEmail.Text = email;
+            
             //if (ImageByte != null)
             //{
             //    if (ImageFormat.Gif.Equals(ImageByte.RawFormat))
@@ -84,6 +86,7 @@ namespace Film
             }
             else
             {
+                
                 ThongTinCaNhan ttcn = thongtincanhan.Single(tt => tt.TenDangNhap == TDN);
                 ttcn.HoTen = txtHoTen.Text;
                 ttcn.NgaySinh = dateNgaySinh.Value;
@@ -163,14 +166,10 @@ namespace Film
         private void pictureBoxProf_Click(object sender, EventArgs e)
         {
             ClassImage.browse();
-            if (pictureBox_Prof.Image != null)
+            if (ClassImage.fileImage != "")
             {
+                pictureBox_Prof.BackgroundImage = null;
                 pictureBox_Prof.Load(ClassImage.fileImage);
-            }
-            else
-            {
-                MessageBox.Show("Please browse for an image file");
-                return;
             }
         }
     }
